@@ -1,26 +1,17 @@
-<body class="d-flex h-100 text-center text-white bg-secondary">
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4">Simple header</span>
+            </a>
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div>
-                <h3 class="float-md-start mb-0">Cover</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="<?= site_url('anggota') ?>">Features</a>
-                    <a class="nav-link" href="#">Contact</a>
-                </nav>
-            </div>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="<?= base_url() ?>" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="<?= site_url() ?>" class="nav-link">Program</a></li>
+                <li class="nav-item"><a href="<?= site_url() ?>" class="nav-link">Kepengurusan</a></li>
+                <li class="nav-item"><a href="<?= site_url() ?>" class="nav-link">Keanggotaan</a></li>
+                <li class="nav-item"><a href="<?= site_url() ?>" class="nav-link">Pemilu</a></li>
+                <li class="nav-item"><a href="<?= site_url() ?>" class="nav-link">Staff</a></li>
+            </ul>
         </header>
-
-        <main class="px-3">
-            <h1>Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-            </p>
-        </main>
-
-        <footer class="mt-auto text-white-50">
-            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-        </footer>
     </div>
