@@ -15,7 +15,9 @@ class Anggota extends CI_Controller
     public function index()
     {
         $data['anggota'] = $this->Anggota_model->getallanggota();
+        $this->load->view('templates/header.php');
         $this->load->view('anggota/list_anggota', $data);
+        $this->load->view('templates/footer.php');
     }
 
     public function add()
@@ -24,7 +26,9 @@ class Anggota extends CI_Controller
             $this->Anggota_model->create();
             redirect('anggota');
         }
+        $this->load->view('templates/header.php');
         $this->load->view('anggota/form_anggota');
+        $this->load->view('templates/footer.php');
     }
 
     public function edit($id)
@@ -34,7 +38,9 @@ class Anggota extends CI_Controller
             redirect('anggota');
         }
         $data['anggota'] = $this->Anggota_model->read_by($id);
+        $this->load->view('templates/header.php');
         $this->load->view('anggota/form_anggota', $data);
+        $this->load->view('templates/footer.php');
     }
 
     public function delete($id)
