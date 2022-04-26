@@ -9,6 +9,5 @@
 
     <!-- link untuk Bootstrap css -->
     <link rel="stylesheet" href="<?= base_url('assets/') ?>dist/css/bootstrap.css">
-</head>
 
-<body>
+</head>
