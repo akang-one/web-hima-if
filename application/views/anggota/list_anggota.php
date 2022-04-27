@@ -1,4 +1,4 @@
-<body>
+<div class="p3 container-fluid">
     <h1>Data Anggota HIMA-IF</h1>
     <hr>
 
@@ -38,3 +38,4 @@
             <?php } ?>
         </tbody>
     </table>
+</div>

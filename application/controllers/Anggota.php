@@ -10,8 +10,6 @@ class Anggota extends CI_Controller
         $this->load->model('Anggota_model');
     }
 
-
-
     public function index()
     {
         $data['anggota'] = $this->Anggota_model->getallanggota();
