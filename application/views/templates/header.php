@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anggota HIMA-IF</title>
+    <title>Web HIMA-IF</title>
 
     <!-- link untuk Bootstrap css -->
     <link rel="stylesheet" href="<?= base_url('assets/') ?>dist/css/bootstrap.css">
@@ -48,23 +48,31 @@
                     </button>
                     <div class="collapse" id="pemilu-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Overview</a></li>
-                            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                            <li><a href="#" class="link-dark rounded">Annually</a></li>
+                            <li><a href="#" class="link-dark rounded">Pengaturan</a></li>
+                            <li><a href="#" class="link-dark rounded">Data Kandidat</a></li>
+                            <li><a href="#" class="link-dark rounded">Data Suara</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#admin-collapse" aria-expanded="false">
+                        Data Admin
+                    </button>
+                    <div class="collapse" id="admin-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="<?= site_url('user') ?>" class="link-dark rounded">List Admin</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="border-top my-3"></li>
+                <small> Hello, Admin! You're Login as Admin </small>
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
                         Account
                     </button>
                     <div class="collapse" id="account-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded">New...</a></li>
-                            <li><a href="#" class="link-dark rounded">Profile</a></li>
-                            <li><a href="#" class="link-dark rounded">Settings</a></li>
+                            <li><a href="#" class="link-dark rounded">Change Password</a></li>
                             <li><a href="#" class="link-dark rounded">Sign out</a></li>
                         </ul>
                     </div>
