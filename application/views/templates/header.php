@@ -15,7 +15,7 @@
 
 <body>
     <main>
-        <div class="flex-shrink-0 p-3 shadow bg-white " style="width: 280px;">
+        <div class="flex-shrink-0 p-3 bg-white " style="width: 280px;">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
                 <span class="fs-5 fw-semibold">HIMA-IF ADMIN</span>
             </a>
@@ -49,7 +49,8 @@
                     <div class="collapse" id="pemilu-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="#" class="link-dark rounded">Pengaturan</a></li>
-                            <li><a href="#" class="link-dark rounded">Data Kandidat</a></li>
+                            <li><a href="<?= site_url('kandidat') ?>" class="link-dark rounded">Data Kandidat</a></li>
+                            <li><a href="#" class="link-dark rounded">Data Pelimih</a></li>
                             <li><a href="#" class="link-dark rounded">Data Suara</a></li>
                         </ul>
                     </div>
