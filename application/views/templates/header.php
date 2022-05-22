@@ -50,7 +50,7 @@
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="#" class="link-dark rounded">Pengaturan</a></li>
                             <li><a href="<?= site_url('kandidat') ?>" class="link-dark rounded">Data Kandidat</a></li>
-                            <li><a href="#" class="link-dark rounded">Data Pelimih</a></li>
+                            <li><a href="#" class="link-dark rounded">Data Pemilih</a></li>
                             <li><a href="#" class="link-dark rounded">Data Suara</a></li>
                         </ul>
                     </div>

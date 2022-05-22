@@ -2,7 +2,7 @@
     <h1>Data Kandidat</h1>
     <hr>
 
-    <p><a href="<?= site_url('anggota/add') ?>"><input type="button" class="btn btn-outline-primary" name="cancel" value="+Tambah"></a></p>
+    <p><a href="<?= site_url('kandidat/add') ?>"><input type="button" class="btn btn-outline-primary" name="cancel" value="+Tambah"></a></p>
     <table class="table table-striped"">
         <thead>
             <tr>
@@ -15,17 +15,23 @@
         </tr>
         </thead>
         <tbody>
+            <?php
+            foreach ($kandidat as $list) {
+            ?>
                 <tr>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?= $list->nmr_urut ?></td>
+                    <td><?= $list->nama_anggota ?></td>
+                    <?php foreach ($wakil as $wa) { ?>
+                    <td><?= $wa->nama_anggota ?></td>
+                    <?php } ?>
+                    <td><?= $list->photo ?></td>
                     <td>
-                        <a href=" " role=" button" class=" btn btn-warning btn-sm">Edit</a>
-        <a href="" role="button" class=" btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin? Data yang dihapus tidak bisa dikembalikan!')">Delete</a>
+                        <a href=" <?= site_url('kandidat/edit/') . $list->id_kandidat ?> " role=" button" class=" btn btn-warning btn-sm">Edit</a>
+        <a href="<?= site_url('kandidat/delete/') . $list->id_kandidat ?>" role="button" class=" btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin? Data yang dihapus tidak bisa dikembalikan!')">Delete</a>
         </td>
         </tr>
-        </tbody>
+    <?php } ?>
+    </tbody>
     </table>
 </div>
