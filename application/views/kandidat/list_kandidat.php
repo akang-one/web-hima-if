@@ -9,7 +9,6 @@
                 <th>#</th>
                 <th>Nomor Urut</th>
                 <th>Nama Kandidat</th>
-                <th>Wakil (Jika ada)</th>
                 <th>Photo</th>
                 <th></th>
         </tr>
@@ -22,9 +21,6 @@
                     <td></td>
                     <td><?= $list->nmr_urut ?></td>
                     <td><?= $list->nama_anggota ?></td>
-                    <?php foreach ($wakil as $wa) { ?>
-                    <td><?= $wa->nama_anggota ?></td>
-                    <?php } ?>
                     <td><?= $list->photo ?></td>
                     <td>
                         <a href=" <?= site_url('kandidat/edit/') . $list->id_kandidat ?> " role=" button" class=" btn btn-warning btn-sm">Edit</a>

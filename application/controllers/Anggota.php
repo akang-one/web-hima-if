@@ -8,6 +8,7 @@ class Anggota extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Anggota_model');
+        $this->load->model('Pemilih_model');
     }
 
     public function index()
@@ -22,6 +23,8 @@ class Anggota extends CI_Controller
     {
         if ($this->input->post('submit')) {
             $this->Anggota_model->create();
+            $anggotaid = $this->db->insert_id();
+            $this->Pemilih_model->create($anggotaid);
             redirect('anggota');
         }
         $this->load->view('templates/header.php');

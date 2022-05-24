@@ -50,4 +50,11 @@ class Anggota_model extends CI_Model
         $this->db->where('id_anggota', $id);
         $this->db->delete('anggota');
     }
+
+    public function getidanggota()
+    {
+        $this->db->select('id_anggota');
+        $query = $this->db->get('anggota');
+        return $query->result();
+    }
 }

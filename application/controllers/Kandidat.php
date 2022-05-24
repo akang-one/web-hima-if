@@ -14,7 +14,6 @@ class Kandidat extends CI_Controller
     public function index()
     {
         $data['kandidat'] = $this->Kandidat_model->getketua();
-        $data['wakil'] = $this->Kandidat_model->getwakil();
         $this->load->view('templates/header');
         $this->load->view('kandidat/list_kandidat', $data);
         $this->load->view('templates/footer');
@@ -35,12 +34,19 @@ class Kandidat extends CI_Controller
     public function edit($id)
     {
         if ($this->input->post('submit')) {
-            $this->Kandidat_model->updateanggota($id);
+            $this->Kandidat_model->update($id);
             redirect('kandidat');
         }
+        $data['anggota'] = $this->Anggota_model->getallanggota();
         $data['kandidat'] = $this->Kandidat_model->read_by($id);
         $this->load->view('templates/header.php');
         $this->load->view('kandidat/form_kandidat', $data);
         $this->load->view('templates/footer.php');
+    }
+
+    public function delete($id)
+    {
+        $this->Kandidat_model->delete($id);
+        redirect('kandidat');
     }
 }

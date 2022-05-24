@@ -5,12 +5,10 @@
     <a href="<?= site_url('kandidat')  ?>"><input type="button" name="cancel" value="CANCEL" class="btn btn-primary"></a>
     <?php
     $ketua = '';
-    $wakil = '';
     $nourut = '';
 
     if (isset($kandidat)) {
         $ketua = $kandidat->ketua;
-        $wakil = $kandidat->wakil;
         $nourut = $kandidat->nmr_urut;
     }
 
@@ -21,20 +19,11 @@
                 <div class="card w-50 p-4">
                     <form class="row g-3" action="" method="POST" enctype="multipart/form-data">
                         <div class="col-12">
-                            <label for="inputketua" class="form-label">Ketua</label>
+                            <label for="inputketua" class="form-label">Kandidat</label>
                             <select name="inputketua" class="form-select" id="inputketua" required>
                                 <option value="">Pilih...</option>
                                 <?php foreach ($anggota  as $namaketua) { ?>
-                                    <option value="<?= $namaketua->id_anggota ?>"><?= $namaketua->nama_anggota ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="inputwakil" class="form-label">Wakil</label>
-                            <select name="inputwakil" class="form-select" id="inputwakil" required>
-                                <option value="">Pilih...</option>
-                                <?php foreach ($anggota  as $namawakil) { ?>
-                                    <option value="<?= $namawakil->id_anggota ?>"><?= $namawakil->nama_anggota ?></option>
+                                    <option value="<?= $namaketua->id_anggota ?>" <?= set_select('inputketua', $namaketua->id_anggota, $ketua == $namaketua->id_anggota ? TRUE : FALSE); ?>><?= $namaketua->nama_anggota ?></option>
                                 <?php } ?>
                             </select>
                         </div>
