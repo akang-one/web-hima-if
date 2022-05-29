@@ -13,7 +13,7 @@ class User_model extends CI_Model
         //ambil data inputan form dan simpan di variabel $data
         $data = [
             'username' => $this->input->post('inputusername'),
-            'password' => password_hash('himaif1234', PASSWORD_DEFAULT),
+            'password' => password_hash('hima123', PASSWORD_DEFAULT),
             'nama_user' => $this->input->post('inputnamauser'),
             'user_role' => $this->input->post('inputrole')
         ];
@@ -72,5 +72,26 @@ class User_model extends CI_Model
     {
         $this->db->where('id_user', $id);
         $this->db->delete('admin');
+    }
+
+    public function getuser($username)
+    {
+        $this->db->where('username', $username);
+        return $this->db->get('admin')->row();
+    }
+
+    public function changepass()
+    {
+        $this->db->set('password', password_hash($this->input->post('passwordbaru'), PASSWORD_DEFAULT));
+        $this->db->where('username', $this->session->userdata('username'));
+        return $this->db->update('admin');
+    }
+
+
+    public function resetpass($id)
+    {
+        $this->db->set('password', password_hash('hima123', PASSWORD_DEFAULT));
+        $this->db->where('id_user', $id);
+        return $this->db->update('admin');
     }
 }
