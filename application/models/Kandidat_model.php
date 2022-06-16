@@ -3,10 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Kandidat_model extends CI_Model
 {
-    public function create()
+    public function create($photo = 'default.png')
     {
-        $photo = $this->input->post('inputphoto');
-        if ($photo === NULL) $photo = 'default.png';
         $data = [
             'id_voting' => $this->input->post('inputvoting'),
             'ketua' => $this->input->post('inputketua'),
@@ -19,18 +17,18 @@ class Kandidat_model extends CI_Model
         $this->db->insert('kandidat', $data);
     }
 
-    public function getketua()
+    public function getketua($id_voting)
     {
         $this->db->select('*');
         $this->db->from('kandidat as b');
         $this->db->join('anggota as a ', 'b.ketua = a.id_anggota');
         $this->db->join('voting as c ', 'b.id_voting = c.id_voting');
-        $this->db->order_by('b.id_voting', 'DESC');
-        $this->db->order_by('nmr_urut', 'ASC');
-        $query = $this->db->get(); //SELECT * FROM cats069 JOIN catsales069 
+        // $this->db->order_by('b.id_voting', 'DESC');
+        $this->db->where('b.id_voting', $id_voting);
+        $this->db->order_by('b.nmr_urut', 'ASC');
+        $query = $this->db->get();
         return $query->result(); // return as object
-        // $query = $this->db->get('kandidat');
-        // return $query->result();
+
     }
 
     public function read_by($id)
@@ -46,7 +44,6 @@ class Kandidat_model extends CI_Model
             unlink('./assets/img/kandidat/' . $this->input->post('photokandidat')); //menghapus photo yang lama
 
         $data = [
-            'ketua' => $this->input->post('inputketua'),
             'nmr_urut' => $this->input->post('inputnourut'),
             'motto' => $this->input->post('inputmotto'),
             'keterangan' => $this->input->post('inputketerangan'),

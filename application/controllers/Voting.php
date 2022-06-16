@@ -17,6 +17,7 @@ class Voting extends CI_Controller
     {
         $voting_aktif = $this->Voting_model->getstatusaktif();
         $voting_berjalan = $this->Voting_model->readkandidatvoting($voting_aktif->id_voting);
+        if ($voting_berjalan->ketua == NULL) redirect('welcome/belum_mulai');
         $data['nama_voting'] = $voting_berjalan->nama_voting;
         $data['periode'] = $voting_berjalan->periode;
         if (!$this->session->userdata('npm')) {

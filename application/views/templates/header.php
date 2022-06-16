@@ -16,6 +16,7 @@
     <!-- Custom fonts for this template Adminpage-->
     <link href="<?= base_url('assets/') ?>adminpage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="<?= base_url('assets/') ?>adminpage/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -56,65 +57,65 @@
                     <span>Halaman Awal</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Admin Menu
-            </div>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/anggota') ?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Data Anggota</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                PEMILU
-            </div>
-
-            <!-- Nav Item -  -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('admin/setting_voting') ?>">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Pengaturan Voting</span></a>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Data</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu :</h6>
-                        <a class="collapse-item" href="<?= site_url('admin/kandidat') ?>">Daftar Kandidat</a>
-                        <a class="collapse-item" href="<?= site_url('admin/pemilih') ?>">Daftar Pemilih</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseT" aria-expanded="true" aria-controls="collapseT">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Hasil</span>
-                </a>
-                <div id="collapseT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu :</h6>
-                        <a class="collapse-item" href="<?= site_url('admin/daftar_hadir') ?>">Daftar Hadir</a>
-                        <a class="collapse-item" href="">Hasil Voting</a>
-                    </div>
-                </div>
-            </li>
-
             <?php if ($this->session->userdata('role') != 2) { ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Admin Menu
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('admin/anggota') ?>">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Data Anggota</span></a>
+                </li>
+            <?php } ?>
+
+
+            <?php if ($this->session->userdata('role') != 0) { ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    PEMILU
+                </div>
+                <?php if ($this->session->userdata('role') == 1) { ?>
+                    <!-- Nav Item -  -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('admin/setting_voting') ?>">
+                            <i class="fas fa-fw fa-cogs"></i>
+                            <span>Pengaturan Voting</span>
+                        </a>
+                    </li>
+                <?php } ?>
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('admin/pemilih') ?>">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Data Pemilih</span>
+                    </a>
+                </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseT" aria-expanded="true" aria-controls="collapseT">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Hasil</span>
+                    </a>
+                    <div id="collapseT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Menu :</h6>
+                            <a class="collapse-item" href="<?= site_url('admin/daftar_hadir') ?>">Daftar Hadir</a>
+                            <a class="collapse-item" href="<?= site_url('admin/hasil_voting') ?>">Hasil Voting</a>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+
+            <?php if ($this->session->userdata('role') == 0) { ?>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->

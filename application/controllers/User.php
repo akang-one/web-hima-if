@@ -19,7 +19,7 @@ class User extends CI_Controller
      */
     public function index()
     {
-        if ($this->session->userdata('role') == 2) redirect('admin');
+        if ($this->session->userdata('role') != 0) redirect('admin');
         $data['user'] = $this->User_model->readall();
         $this->load->view('templates/header');
         $this->load->view('admin/user/list_user', $data);
@@ -33,7 +33,7 @@ class User extends CI_Controller
      */
     public function add()
     {
-        if ($this->session->userdata('role') == 2) redirect('admin');
+        if ($this->session->userdata('role') != 0) redirect('admin');
         if ($this->input->post('submit')) {
             $this->User_model->create();
             redirect('user');
@@ -51,7 +51,7 @@ class User extends CI_Controller
      */
     public function edit($id)
     {
-        if ($this->session->userdata('role') == 2) redirect('admin');
+        if ($this->session->userdata('role') != 0) redirect('admin');
         if ($this->input->post('submit')) {
             $this->User_model->update($id);
             redirect('user');
@@ -69,7 +69,7 @@ class User extends CI_Controller
      */
     public function delete($id)
     {
-        if ($this->session->userdata('role') == 2) redirect('admin');
+        if ($this->session->userdata('role') != 0) redirect('admin');
         $this->User_model->delete($id);
         redirect('user');
     }
@@ -136,7 +136,7 @@ class User extends CI_Controller
      */
     public function reset_password($id)
     {
-        if ($this->session->userdata('role') == 2) redirect('admin');
+        if ($this->session->userdata('role') != 0) redirect('admin');
         $this->User_model->resetpass($id);
         redirect('user');
     }

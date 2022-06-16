@@ -5,6 +5,7 @@ class Voting_model extends CI_Model
 {
     public function read()
     {
+        $this->db->order_by('tgl_tutup', 'DESC');
         $query = $this->db->get('voting');
         return $query->result();
     }
@@ -18,6 +19,13 @@ class Voting_model extends CI_Model
         ];
 
         $this->db->insert('voting', $data);
+    }
+
+    public function updateWaktu($id)
+    {
+        $this->db->set('tgl_tutup', $this->input->post('perpanjangVoting'));
+        $this->db->where('id_voting', $id);
+        $this->db->update('voting');
     }
 
     public function readby($id)
@@ -39,24 +47,10 @@ class Voting_model extends CI_Model
 
     public function getstatusaktif()
     {
-        $this->db->like('status', '1');
+        $tgl = date('Y-m-d');
+        $this->db->where('tgl_tutup >=', $tgl);
         $query = $this->db->get('voting');
         return $query->row();
-    }
-
-
-    public function mulai($id)
-    {
-        $this->db->set('status', 1);
-        $this->db->where('id_voting', $id);
-        $this->db->update('voting');
-    }
-
-    public function stop($id)
-    {
-        $this->db->set('status', 0);
-        $this->db->where('id_voting', $id);
-        $this->db->update('voting');
     }
 
     public function pilih($id_voting)
@@ -80,12 +74,20 @@ class Voting_model extends CI_Model
 
     public function read_ikut_voting($id_vote)
     {
-        $this->db->select('*');
-        $this->db->from('pemilih as a');
-        $this->db->join('suara as b ', 'a.id_pemilih = b.id_pemilih', 'LEFT');
-        $this->db->join('anggota as c ', 'a.id_anggota = c.id_anggota', 'FULL OUTER');
-        $this->db->having('b.id_voting', $id_vote);
+        $sql = "SELECT anggota.npm_anggota , anggota.nama_anggota, anggota.kelas, voting.id_voting, suara.waktu FROM pemilih JOIN anggota ON pemilih.id_anggota = anggota.id_anggota JOIN voting LEFT JOIN suara ON voting.id_voting = suara.id_voting AND pemilih.id_pemilih = suara.id_pemilih HAVING voting.id_voting = ? ORDER BY anggota.npm_anggota";
+        $query = $this->db->query($sql, array($id_vote));
+        return $query->result();
+    }
 
+    public function hasil_vote($id_vote)
+    {
+        $this->db->select('kandidat.id_voting,kandidat.nmr_urut, anggota.nama_anggota,COUNT(suara.id_pemilih) AS total');
+        $this->db->from('suara');
+        $this->db->join('kandidat', 'suara.id_kandidat = kandidat.id_kandidat', 'RIGHT');
+        $this->db->join('anggota', 'kandidat.ketua = anggota.id_anggota');
+        $this->db->group_by('kandidat.ketua');
+        $this->db->having('id_voting', $id_vote);
+        $this->db->order_by('kandidat.nmr_urut');
         $query = $this->db->get();
         return $query->result();
     }

@@ -7,6 +7,41 @@
 
     <!-- Content Row -->
     <div class="row">
+        <div class="col-lg-4">
+            <!-- Basic Card Example -->
+            <div class="card border-left-success shadow py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Action</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Data Kehadiran</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard fa-2x text-gray-300"></i>
+                        </div>
+                        <div class="col-12">
+                            <p><small>Pilih voting yang ingin ditampilkan</small></p>
+                        </div>
+                        <div class="col mr-2">
+                            <form action="" method="post">
+                                <div class="input-group">
+                                    <select class="form-select" name="voting">
+                                        <option selected>Choose...</option>
+                                        <?php foreach ($voting as $list) { ?>
+                                            <option value="<?= $list->id_voting ?>"><?= $list->nama_voting ?> <?= $list->periode ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <input class="btn btn-outline-success" type="submit" name="filter" value="Cari"></input>
+                                </div>
+                            </form>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-8">
             <!-- Basic Card Example -->
             <div class="card shadow mb-4">
@@ -57,41 +92,6 @@
                                 } ?>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <!-- Basic Card Example -->
-            <div class="card border-left-success shadow py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Action</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Data Kehadiran</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard fa-2x text-gray-300"></i>
-                        </div>
-                        <div class="col-12">
-                            <p><small>Pilih voting yang ingin ditampilkan</small></p>
-                        </div>
-                        <div class="col mr-2">
-                            <form action="" method="post">
-                                <div class="input-group">
-                                    <select class="form-select" name="voting">
-                                        <option selected>Choose...</option>
-                                        <?php foreach ($voting as $list) { ?>
-                                            <option value="<?= $list->id_voting ?>"><?= $list->nama_voting ?> <?= $list->periode ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <input class="btn btn-outline-success" type="submit" name="filter" value="Cari"></input>
-                                </div>
-                            </form>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

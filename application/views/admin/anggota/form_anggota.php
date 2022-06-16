@@ -2,10 +2,38 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Data Anggota HIMA-IF</h1>
     <div class="row">
+        <div class="col-lg-4">
+            <!-- Basic Card Example -->
+            <div class="card border-left-success shadow py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Action</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Form Data Anggota</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-edit fa-2x text-gray-300"></i>
+                        </div>
+                        <div class="col-mr-2">
+                            <p><small>Form Untuk Tambah / Edit Anggota</small></p>
+                        </div>
+                        <div class="col-mr-2">
+                            <a href="<?= site_url('admin/anggota')  ?>" class="btn btn-secondary btn-icon-split btn-sm">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-left"></i>
+                                </span>
+                                <span class="text">Kembali</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-8">
             <div class="card shadow mb-4 ">
                 <div class="card-header py-3">
-
+                    <h6 class="m-0 font-weight-bold text-success">Form Data Anggota</h6>
                 </div>
                 <?php
                 $npm = '';
@@ -62,37 +90,9 @@
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="submit" value="Simpan" name="submit" class="btn btn-primary me-md-2">
-                                    <input type="reset" value="Reset" class="btn btn-secondary">
+                                    <input type="reset" value="Reset" class="btn btn-warning">
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <!-- Basic Card Example -->
-            <div class="card border-left-success shadow py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Action</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Data Anggota</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user-edit fa-2x text-gray-300"></i>
-                        </div>
-                        <div class="col-mr-2">
-                            <p><small>Form Untuk Tambah / Edit Anggota</small></p>
-                        </div>
-                        <div class="col-mr-2">
-                            <a href="<?= site_url('admin/anggota')  ?>" class="btn btn-secondary btn-icon-split btn-sm">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-arrow-left"></i>
-                                </span>
-                                <span class="text">Kembali</span>
-                            </a>
                         </div>
                     </div>
                 </div>

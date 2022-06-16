@@ -7,6 +7,20 @@
 
     <!-- Content Row -->
     <div class="row">
+        <div class="col-lg-4">
+            <!-- Basic Card Example -->
+            <div class="card border-left-success shadow py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <p>Data Pemilih</p>
+                        </div>
+                        <div class="col mr-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-8">
             <!-- Basic Card Example -->
             <div class="card shadow mb-4">
@@ -57,21 +71,6 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <!-- Basic Card Example -->
-            <div class="card border-left-success shadow py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                            <p>Data Pemilih</p>
-                        </div>
-                        <div class="col mr-2">
-                        </div>
                     </div>
                 </div>
             </div>

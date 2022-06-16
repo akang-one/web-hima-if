@@ -2,7 +2,7 @@
     <!-- Page Heading -->
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Kandidat</h1>
+        <h1 class="h3 mb-0 text-gray-800">Daftar Kandidat </h1>
     </div>
 
     <?php if ($this->session->flashdata('msg')) : ?>
@@ -19,14 +19,15 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4 ">
                 <div class="card-header py-3">
-                    <a href="<?= site_url('admin/kandidat')  ?>" class="btn btn-success btn-icon-split btn-sm">
+                    <!-- <a href="<?= site_url('admin/kandidat/') ?>" class="btn btn-success btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                             <i class="fas fa-arrow-left"></i>
                         </span>
                         <span class="text">Kembali</span>
-                    </a>
+                    </a> -->
                 </div>
-                <form class="" action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="inputvoting" value="">
                     <div class="card-body">
                         <?php
                         $vote = '';
@@ -63,7 +64,7 @@
                                     <select name="inputvoting" class="form-select" id="inputvoting" required>
                                         <option value="">Pilih...</option>
                                         <?php foreach ($voting  as $v) { ?>
-                                            <option value="<?= $v->id_voting ?>" <?= set_select('inputvoting', $v->id_voting, $vote == $v->id_voting ? TRUE : FALSE); ?>><?= $v->nama_voting ?></option>
+                                            <option value="<?= $v->id_voting ?>" <?= set_select('inputvoting', $v->id_voting, $vote == $v->id_voting ? TRUE : FALSE); ?>><?= $v->nama_voting . ' ' . $v->periode ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
